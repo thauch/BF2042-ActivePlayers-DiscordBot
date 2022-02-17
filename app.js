@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const client = new Discord.Client({ intents: 641 });
 
-client.login(`OTQzNzQxNTI3NDI1OTU3OTA5.Yg3dyg.XPRy6DFkVGKOWHHykJfUy5X8XPk`);
+client.login(``);
 
 client.on('ready', () => {
     client.user.setActivity(": " + getActiveUsers() + " active", { type: 'PLAYING'})
