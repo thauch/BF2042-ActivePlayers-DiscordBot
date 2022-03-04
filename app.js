@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const client = new Discord.Client({ intents: 641 });
 
-const botToken = "OTQzNzQxNTI3NDI1OTU3OTA5.Yg3dyg.Na04fqalvIJa7mCIHpITGmgJRBw";
+const botToken = "";
 const refreshTime = 60000 // 60s
 
 client.login(botToken);
