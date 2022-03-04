@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const client = new Discord.Client({ intents: 641 });
 
-const botToken = "";
+const botToken = "OTQzNzQxNTI3NDI1OTU3OTA5.Yg3dyg.Na04fqalvIJa7mCIHpITGmgJRBw";
 const refreshTime = 60000 // 60s
 
 client.login(botToken);
@@ -15,11 +15,14 @@ function getActiveUsers() {
     let req = new XMLHttpRequest();
     req.open("GET", "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1?appid=1517290&format=json", false);
     req.send(null);
-    let result = JSON.parse(req.responseText);
-    return result.response.player_count;
+    if (JSON.parse(req.responseText) !== undefined) {
+        result = JSON.parse(req.responseText);
+        count = result.response.player_count;
+    }
 }
 
 function setBotActivity() {
-    client.user.setActivity(": " + getActiveUsers(), { type: 'PLAYING'});
+    getActiveUsers();
+    client.user.setActivity(": " + count + " on Steam", { type: 'PLAYING'});
     setTimeout(setBotActivity, refreshTime);
 }
